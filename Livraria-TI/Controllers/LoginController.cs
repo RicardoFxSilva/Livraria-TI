@@ -4,7 +4,7 @@ namespace Livraria_TI.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Registrar()
         {
             return View();
         }
