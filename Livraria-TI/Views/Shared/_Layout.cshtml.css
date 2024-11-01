@@ -46,3 +46,8 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+.nav-item {
+    margin: 0 10px;
+}
+.nav_pesquisa {
+}
