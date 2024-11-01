@@ -1,13 +1,70 @@
-﻿body {
+﻿.Carrosel{
+    margin-bottom: 100px;
+}
+.book-title {
+    color: white; /* Text color */
+    font-size: 20px; /* Font size */
+    margin-bottom: 5px;
+}
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 20px; /* Space between items */
+    max-width: 1000px; /* Optional: Set a maximum width for larger grids */
+    margin: auto; /* Center the grid */
+    padding: 0; /* No padding on the grid container */
+}
+
+.book-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px; /* Rounded corners */
+    height: 300px; /* Fixed height for uniformity */
+}
+
+.book-image {
+    position: relative;
+    overflow: hidden;
 }
 
 .Imagem {
-    width: 263px;
-    object-fit: contain;
-    height: 175px;
+    width: 100%;
+    height: auto; /* Adjust height as needed */
+    display: block; /* Ensures there's no gap below the image */
+}
+.book-image:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
 }
 
-.Carrosel {
-    width: 100%;
-    margin-left: 0px;
+.book-title, .price-tag, .btn {
+    margin: 5px 0; /* Add some spacing between elements */
 }
+
+
+.overlay {
+    position: absolute; /* Position the overlay on top of the image */
+    top: 0; /* Align to the top of the container */
+    left: 0; /* Align to the left of the container */
+    right: 0; /* Extend to the right of the container */
+    bottom: 0; /* Extend to the bottom of the container */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for contrast */
+    color: white; /* Change text color for visibility */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Align items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    opacity: 0; /* Start with the overlay hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+    border-bottom-left-radius: 15px; /* Round bottom left corner */
+    border-bottom-right-radius: 15px; /* Round bottom right corner */
+}
+
+
+.price-tag {
+    color: white;
+    font-size: 18px; /* Adjust font size as needed */
+    margin-bottom: 10px; /* Space between price tag and button */
+}
+
+.vie
