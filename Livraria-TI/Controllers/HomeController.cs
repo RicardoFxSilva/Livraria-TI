@@ -23,6 +23,10 @@ namespace Livraria_TI.Controllers
             return View();
         }
 
+        public IActionResult Carinho()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
