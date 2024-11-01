@@ -6,6 +6,7 @@
 }
 
 <div class="login-container">
+    <br />
     <form>
         <!-- Email input -->
         <div data-mdb-input-init class="form-outline mb-4">
@@ -35,8 +36,10 @@
             </div>
         </div>
 
-        <!-- Submit button -->
-        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" asp-area="" asp-controller="Home" asp-action="Index">Iniciar sessão</button>
+        <a class="btn btn-primary btn-block mb-4" asp-area="" asp-controller="Home" asp-action="Index" data-mdb-ripple-init>
+            Iniciar sessão
+        </a>
+
 
         <!-- Register buttons -->
         <div class="text-left">
