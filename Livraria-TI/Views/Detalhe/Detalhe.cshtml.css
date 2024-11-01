@@ -1,0 +1,102 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 90px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    header h1 {
+        font-size: 45px;
+        color: dodgerblue;
+    }
+
+.book-details {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.book-image img {
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .book-info h2 {
+        font-size: 50px;
+        color: grey;
+        margin-bottom: 7px;
+    }
+
+    .book-info .author {
+        font-size: 20px;
+        color: lightslategrey;
+        margin-bottom: 15px;
+    }
+
+    .book-info .price {
+        font-size: 20px;
+        color: orange;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .book-info .description {
+        font-size: 17px;
+        line-height: 1.6;
+        color: grey;
+        margin-bottom: 15px;
+    }
+
+.btn {
+    padding: 12px 14px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.buy-now {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.add-to-cart {
+    background-color: lightblue;
+    color: grey;
+}
+
+.buy-now:hover {
+    background-color: dodgerblue;
+}
+
+.add-to-cart:hover {
+    background-color: lightgray;
+}
