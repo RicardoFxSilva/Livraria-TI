@@ -7,4 +7,8 @@
     <RootNamespace>Livraria_TI</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Administrador\StyleSheet.css" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,40 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+}
+
+.Title {
+    font-family: Arial,sans-serif;
+}
+
+
+.btnGerir {
+    font-family: Arial,sans-serif;
+    background-color: lightblue;
+    margin-bottom: 25px;
+}
+
+
+.btnAdicionar {
+    font-family: Arial,sans-serif;
+    background-color: lightblue;
+    margin-bottom: 25px;
+}
+
+.btnRemover {
+    font-family: Arial,sans-serif;
+    background-color: lightblue;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.btnModificar {
+    font-family: Arial,sans-serif;
+    background-color: lightblue;
+    margin-bottom: 250px;
+}
