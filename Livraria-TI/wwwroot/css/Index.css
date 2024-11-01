@@ -1,0 +1,13 @@
+﻿body {
+}
+
+.Imagem {
+    width: 263px;
+    object-fit: contain;
+    height: 175px;
+}
+
+.Carrosel {
+    width: 100%;
+    margin-left: 0px;
+}
