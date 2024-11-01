@@ -9,9 +9,10 @@ namespace Livraria_TI.Controllers
             return View();
         }
 
-        public IActionResult Detalhe()
+        public IActionResult Detalhe(int? id)
         {
-            return View();
+            ViewData["Id"] = id;
+            return View(id);
         }
     }
 }

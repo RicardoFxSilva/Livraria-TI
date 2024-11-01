@@ -11,4 +11,8 @@
     <None Remove="Views\Administrador\StyleSheet.css" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\ImgLivros\" />
+  </ItemGroup>
+
 </Project>
