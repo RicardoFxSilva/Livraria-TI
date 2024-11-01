@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Administração de Livros";
+}
+<head>
+    <link rel="stylesheet" type"text/css" href="Administrador.cshtml.css" />
+</head>
+
+<header>
+    <h1 class="Title">Administração de Livros</h1>
+</header>
+
+<section id="gerir-usuarios">
+    <button class="btnGerir">Gerir Utilizadores</button>
+</section>
+
+<section id="adicionar-livro">
+    <h2 class="Adicionar">Adicionar Livro</h2>
+    <form>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo">
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor">
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco">
+
+        <button class="btnAdicionar" type="submit">Adicionar Livro</button>
+    </form>
+</section>
+
+<section id="remover-livro">
+    <h2 class="Remover">Remover Livro</h2>
+    <form>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo">
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor">
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco">
+
+        <button class="btnRmover" type="submit">Remover Livro</button>
+    </form>
+</section>
+
+<section id="modificar-preco">
+    <h2 class="Modificar">Modificar Preço</h2>
+    <form>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo">
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor">
+
+        <label for="precoAtual">Preço Atual:</label>
+        <input type="number" id="preco" name="preco">
+
+        <label for="precoNovo">Preço Novo:</label>
+        <input type="number" id="preco" name="preco">
+
+        <button class="btModificar" type="submit">Modificar</button>
+    </form>
+</section>
