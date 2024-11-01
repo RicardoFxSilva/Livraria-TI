@@ -7,4 +7,20 @@
     <RootNamespace>Livraria_TI</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="NovaPasta\**" />
+    <Content Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Detalhe.cshtml" />
+    <Content Remove="Views\Home\Detalhe.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Detalhe.cshtml.css" />
+  </ItemGroup>
+
 </Project>
