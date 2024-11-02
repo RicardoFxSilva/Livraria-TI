@@ -2,25 +2,27 @@
     margin-bottom: 100px;
 }
 .book-title {
-    color: white; /* Text color */
-    font-size: 20px; /* Font size */
+    color: white; 
+    font-size: 20px;
     margin-bottom: 5px;
 }
 .book-grid {
+    justify-content: space-around;
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    grid-template-rows: repeat(2, 1fr); /* 2 rows */
-    gap: 20px; /* Space between items */
-    max-width: 1000px; /* Optional: Set a maximum width for larger grids */
-    margin: auto; /* Center the grid */
-    padding: 0; /* No padding on the grid container */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px; 
+    max-width: 1000px;
+    margin: auto; 
+    padding: 0;
 }
 
 .book-item {
     position: relative;
     overflow: hidden;
-    border-radius: 10px; /* Rounded corners */
-    height: 300px; /* Fixed height for uniformity */
+    border-radius: 10px;
+    height: 300px;
+    width: 230px;
 }
 
 .book-image {
@@ -30,15 +32,15 @@
 
 .Imagem {
     width: 100%;
-    height: auto; /* Adjust height as needed */
-    display: block; /* Ensures there's no gap below the image */
+    height: auto;
+    display: block; 
 }
 .book-image:hover .overlay {
-    opacity: 1; /* Show overlay on hover */
+    opacity: 1;
 }
 
 .book-title, .price-tag, .btn {
-    margin: 5px 0; /* Add some spacing between elements */
+    margin: 5px 0;
 }
 
 
