@@ -4,7 +4,7 @@
     {
         public int Id_Autor { get; set; }
 
-        public int Nome { get; set; }
+        public int NomeAutor { get; set; }
 
     }
 }

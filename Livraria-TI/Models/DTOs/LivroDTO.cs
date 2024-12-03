@@ -11,5 +11,7 @@
         public string Capa {  get; set; }
 
         public string Editora { get; set; }
+
+        public string Descricao { get; set; }
     }
 }
