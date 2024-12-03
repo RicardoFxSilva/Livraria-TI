@@ -1,4 +1,4 @@
-namespace Livraria_TI.Models
+namespace Livraria_TI.Models.ViewModels
 {
     public class ErrorViewModel
     {
