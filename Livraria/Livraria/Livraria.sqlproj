@@ -58,6 +58,6 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Script1.sql" />
+    <None Include="ScriptDaDB.sql" />
   </ItemGroup>
 </Project>
