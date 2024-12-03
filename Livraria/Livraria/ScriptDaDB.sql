@@ -2,9 +2,10 @@
 DROP DATABASE Livraria;
 CREATE DATABASE Livraria;
 -- Criação da Tabela Utilizador
+use Livraria;
 CREATE TABLE Utilizador (
     Id_Utilizador INT PRIMARY KEY IDENTITY(1,1),
-    Nome VARCHAR(100),
+    NomeUtilizador VARCHAR(100),
     Email VARCHAR(100),
     Senha VARCHAR(50),
     Morada VARCHAR(100)
@@ -13,20 +14,21 @@ CREATE TABLE Utilizador (
 -- Criação da Tabela Autor
 CREATE TABLE Autor (
     Id_Autor INT PRIMARY KEY IDENTITY(1,1),
-    Nome VARCHAR(50)
+    NomeAutor VARCHAR(50)
 );
 
 -- Criação da Tabela Genero
 CREATE TABLE Genero (
     Id_Genero INT PRIMARY KEY IDENTITY(1,1),
     Genero VARCHAR(50)
-);
+); 
 
 -- Criação da Tabela Livro
 CREATE TABLE Livro (
     Id_Livro INT PRIMARY KEY IDENTITY(1,1),
     Titulo VARCHAR(75),
     Preco DECIMAL(10, 2),
+    Descricao Varchar(750), 
     Capa VARCHAR(255),
     Editora VARCHAR(75)
 );
@@ -72,7 +74,7 @@ CREATE TABLE Item_Compra (
 );
 
 -- inserir dados ás tabelas incluindo o admin
-INSERT INTO Utilizador (Nome, Email, Senha, Morada)
+INSERT INTO Utilizador (NomeUtilizador, Email, Senha, Morada)
 VALUES 
 ('admin', 'admin@admin.com', '123', 'administrador'),
 ('João Silva', 'joao.silva@example.com', 'qwe123!', 'Rua A, nº 1'),
@@ -91,7 +93,7 @@ VALUES
 ('Carolina Ramos', 'carolina.ramos@example.com', 'Caro@123', 'Rua N, nº 14');
 
 
-INSERT INTO Autor (Nome)
+INSERT INTO Autor (NomeAutor)
 VALUES 
 ('J.K. Rowling'),
 ('George R.R. Martin'),
@@ -129,23 +131,23 @@ VALUES
 ('Clássico');
 
 
-INSERT INTO Livro (Titulo, Preco, Capa, Editora)
+INSERT INTO Livro (Titulo, Preco, Descricao, Capa, Editora)
 VALUES 
-('O Senhor dos Anéis', 49.99, NULL, 'HarperCollins'),
-('Game of Thrones', 59.99, NULL, 'Bantam Books'),
-('It - A Coisa', 39.50, NULL, 'Suma'),
-('Orgulho e Preconceito', 29.90, NULL, 'Penguin Books'),
-('As Aventuras de Tom Sawyer', 19.99, NULL, 'Oxford Press'),
-('Assassinato no Expresso do Oriente', 25.50, NULL, 'Collins Crime Club'),
-('O Velho e o Mar', 34.90, NULL, 'Scribner'),
-('O Grande Gatsby', 21.80, NULL, 'Scribner'),
-('David Copperfield', 28.00, NULL, 'Chapman & Hall'),
-('Guerra e Paz', 64.90, NULL, 'Vintage Books'),
-('O Hobbit', 44.99, NULL, 'HarperCollins'),
-('Mrs. Dalloway', 22.50, NULL, 'Hogarth Press'),
-('Cem Anos de Solidão', 37.90, NULL, 'Harper Perennial'),
-('O Sol é para Todos', 32.80, NULL, 'J.B. Lippincott & Co.'),
-('A Casa dos Espíritos', 39.99, NULL, 'Editorial Sudamericana');
+('O Senhor dos Anéis', 49.99, 'Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso, o hobbit Frodo tem um caminho árduo pela frente, onde encontra perigo, medo e seres bizarros. Ao seu lado para o cumprimento desta jornada, ele aos poucos pode contar com outros hobbits, um elfo, um anão, dois humanos e um mago, totalizando nove seres que formam a Sociedade do Anel.',NULL, 'HarperCollins'),
+('Game of Thrones', 59.99, 'O primeiro volume da série As Crônicas de Gelo e Fogo mergulha no continente fictício de Westeros, onde famílias nobres lutam pelo controle do Trono de Ferro. Em meio a traições, alianças e conflitos, o inverno se aproxima, trazendo consigo perigos ainda maiores do que as disputas pelo poder.',NULL, 'Bantam Books'),
+('It - A Coisa', 39.50, 'Na pequena cidade de Derry, um grupo de amigos enfrenta uma entidade maligna que assume a forma de seus piores medos, muitas vezes manifestando-se como o palhaço Pennywise. Anos depois, eles retornam à cidade para cumprir uma promessa de infância: enfrentar A Coisa uma última vez.',NULL, 'Suma'),
+('Orgulho e Preconceito', 29.90, 'Elizabeth Bennet, uma jovem espirituosa, enfrenta desafios em sua busca por amor e felicidade em meio às rígidas normas sociais do início do século XIX. Sua relação com o orgulhoso Sr. Darcy começa tumultuada, mas evolui à medida que ambos aprendem a superar seus preconceitos.' ,NULL, 'Penguin Books'),
+('As Aventuras de Tom Sawyer', 19.99, 'Tom Sawyer é um jovem travesso que vive às margens do rio Mississippi. Suas aventuras incluem buscar tesouros escondidos, testemunhar um crime e escapar de perigos mortais, sempre com seu amigo Huckleberry Finn ao lado.',NULL, 'Oxford Press'),
+('Assassinato no Expresso do Oriente', 25.50, 'O famoso detetive Hercule Poirot embarca no Expresso do Oriente, mas a viagem é interrompida pelo assassinato de um passageiro. Poirot deve resolver o caso em um ambiente claustrofóbico, onde todos são suspeitos e nada é o que parece.',NULL, 'Collins Crime Club'),
+('O Velho e o Mar', 34.90, 'Um velho pescador cubano chamado Santiago enfrenta a luta de sua vida ao capturar um gigantesco marlim em alto-mar. A obra explora temas de perseverança, solidão e a conexão do homem com a natureza.',NULL, 'Scribner'),
+('O Grande Gatsby', 21.80, 'Ambientado na efervescente década de 1920, o romance conta a história de Jay Gatsby, um homem misterioso e ambicioso, e sua obsessão por Daisy Buchanan. Através do olhar de Nick Carraway, o leitor é levado a explorar os excessos, a decadência e o vazio do sonho americano.',NULL, 'Scribner'),
+('David Copperfield', 28.00, 'Uma obra semi-autobiográfica que segue a vida de David Copperfield, desde sua infância difícil até se tornar um escritor renomado. O livro aborda temas como perseverança, amizade e amor, enquanto explora as injustiças sociais da era vitoriana.',NULL, 'Chapman & Hall'),
+('Guerra e Paz', 64.90, 'Um épico literário que combina ficção e história, acompanhando várias famílias aristocráticas durante as Guerras Napoleônicas na Rússia. O romance aborda questões de amor, guerra, destino e a busca por sentido na vida.',NULL, 'Vintage Books'),
+('O Hobbit', 44.99, 'Bilbo Bolseiro, um hobbit tranquilo, é inesperadamente arrastado para uma jornada épica com um grupo de anões em busca de recuperar seu tesouro roubado pelo dragão Smaug. Pelo caminho, Bilbo encontra perigos, amigos e um anel mágico.',NULL, 'HarperCollins'),
+('Mrs. Dalloway', 22.50, 'A narrativa acompanha um único dia na vida de Clarissa Dalloway, uma mulher da alta sociedade londrina. Enquanto organiza uma festa, suas reflexões revelam questões profundas sobre identidade, mortalidade e o papel da mulher na sociedade.',NULL, 'Hogarth Press'),
+('Cem Anos de Solidão', 37.90, 'Uma saga multigeracional da família Buendía na fictícia cidade de Macondo. A obra, um marco do realismo mágico, explora temas de amor, solidão, poder e a passagem do tempo, enquanto mistura elementos fantásticos e históricos.',NULL, 'Harper Perennial'),
+('O Sol é para Todos', 32.80, 'Ambientado no sul dos Estados Unidos durante a Grande Depressão, o romance é narrado pela jovem Scout Finch, cuja visão inocente contrasta com as tensões raciais de sua cidade. Seu pai, o advogado Atticus Finch, defende um homem negro acusado injustamente de um crime.',NULL, 'J.B. Lippincott & Co.'),
+('A Casa dos Espíritos', 39.99, 'Um romance multigeracional que mistura realismo mágico e história política, narrando a saga da família Trueba. A obra aborda temas como opressão, revolução, amor e memória, enquanto entrelaça eventos pessoais e sociais no Chile.',NULL, 'Editorial Sudamericana');
 
 
 INSERT INTO Compra (Data_Compra, Estado_Compra, Estado_Encomenda, Data_Entrega, Id_Utilizador)
@@ -197,4 +199,4 @@ VALUES
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15);
 
-select * from LivroAutor;
+select * from Livro;
