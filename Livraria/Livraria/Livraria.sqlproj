@@ -56,8 +56,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="StoredProcedures\Cliente" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ScriptDaDB.sql" />
+    <None Include="StoredProcedures\Cliente\sp_utilizadores_insert.sql" />
+    <None Include="StoredProcedures\Cliente\sp_utilizadores_get1.sql" />
+    <None Include="StoredProcedures\Cliente\sp_utilizadores_get.sql" />
+    <None Include="StoredProcedures\Cliente\sp_utilizadores_delete.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="StoredProcedures\Cliente\sp_utilizadores_update.sql" />
   </ItemGroup>
 </Project>

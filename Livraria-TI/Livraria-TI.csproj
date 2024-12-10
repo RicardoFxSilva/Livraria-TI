@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\DTO\" />
     <Folder Include="wwwroot\Images\ImgLivros\" />
   </ItemGroup>
 
