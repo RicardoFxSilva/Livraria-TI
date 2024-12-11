@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace LojaOnline.Data
+namespace Livraria_TI.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -9,7 +9,5 @@ namespace LojaOnline.Data
             : base(options)
         {
         }
-
-       
     }
 }
