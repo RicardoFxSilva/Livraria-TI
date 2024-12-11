@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="StoredProcedures" />
     <Folder Include="StoredProcedures\Utilizador" />
+    <Folder Include="StoredProcedures\Livro" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ScriptDaDB.sql" />
@@ -68,5 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_update.sql" />
+    <None Include="StoredProcedures\Livro\sp_livro_delete.sql" />
+    <None Include="StoredProcedures\Livro\sp_livro_get.sql" />
+    <None Include="StoredProcedures\Livro\sp_livro_get1.sql" />
+    <None Include="StoredProcedures\Livro\sp_livro_insert.sql" />
+    <Build Include="StoredProcedures\Livro\sp_livro_update.sql" />
   </ItemGroup>
 </Project>

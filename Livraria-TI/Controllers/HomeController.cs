@@ -1,11 +1,26 @@
 using Livraria_TI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Livraria_TI.Helpers;
+using Livraria_TI.Models.DTOs;
+using Livraria_TI.Models.ViewModels.Cliente;
+using Livraria_TI.Models.ViewModels.Livro;
+using Livraria_TI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Options;
+using System.Security.Claims;
 
 namespace Livraria_TI.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+
+        private readonly MyOptions _myOptions;
+        private readonly UtilizadorService _UtilizadorService;
+        private readonly LivroService _LivroService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -13,20 +28,35 @@ namespace Livraria_TI.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public HomeController(IOptions<MyOptions> myOptions, IHttpContextAccessor httpContextAccessor)
         {
-            return View();
+            _UtilizadorService = new UtilizadorService(myOptions);
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
-            return View();
+            return View(GetIndexViewModel());
+        }
+
+        private LivroIndexViewModel GetIndexViewModel()
+        {
+            LivroIndexViewModel model = new LivroIndexViewModel();
+            model.livros = _LivroService.Get().Results;
+
+            return model;
+        }
+
+        private string GetUsername()
+        {
+            return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
         }
 
         public IActionResult Carinho()
         {
             return View();
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
