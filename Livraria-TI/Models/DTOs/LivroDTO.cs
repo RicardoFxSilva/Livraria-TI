@@ -1,4 +1,5 @@
-﻿namespace Livraria_TI.Models
+﻿
+namespace Livraria_TI.Models
 {
     public class LivroDTO
     {

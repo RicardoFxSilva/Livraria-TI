@@ -74,7 +74,7 @@ CREATE TABLE Item_Compra (
 );
 
 -- inserir dados ás tabelas incluindo o admin
-INSERT INTO Utilizador (NomeUtilizador, Email, Senha, Morada)
+INSERT INTO Utilizador (NomeUtilizador, Email, Password, Morada)
 VALUES 
 ('admin', 'admin@admin.com', '123', 'administrador'),
 ('João Silva', 'joao.silva@example.com', 'qwe123!', 'Rua A, nº 1'),
@@ -198,5 +198,3 @@ VALUES
 (1, 11), (2, 2), (3, 3), (4, 4), (5, 5),
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15);
-
-select * from Livro;

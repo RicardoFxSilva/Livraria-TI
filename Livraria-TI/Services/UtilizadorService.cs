@@ -30,7 +30,7 @@ namespace Livraria_TI.Services
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
-                listc = conn.Query<UtilizadorDTO>(Constants.SP_utilizadores_GET, parameters, commandType: CommandType.StoredProcedure).ToList();
+                listc = conn.Query<UtilizadorDTO>(Constants.SP_UTILIZADORES_GET, parameters, commandType: CommandType.StoredProcedure).ToList();
             }
 
             return new ExecutionResultFactory<List<UtilizadorDTO>>().GetSuccessExecutionResult(listc, string.Empty);
@@ -47,7 +47,7 @@ namespace Livraria_TI.Services
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
-                result = conn.Execute(Constants.SP_utilizadores_INSERT, parameters, commandType: CommandType.StoredProcedure);
+                result = conn.Execute(Constants.SP_UTILIZADORES_INSERT, parameters, commandType: CommandType.StoredProcedure);
             }
 
             return new ExecutionResultFactory<UtilizadorDTO>().GetSuccessExecutionResult(dto, string.Empty);
@@ -63,7 +63,7 @@ namespace Livraria_TI.Services
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
-                result = conn.Execute(Constants.SP_utilizadores_UPDATE, parameters, commandType: CommandType.StoredProcedure);
+                result = conn.Execute(Constants.SP_UTILIZADORES_UPDATE, parameters, commandType: CommandType.StoredProcedure);
             }
 
             return new ExecutionResultFactory<UtilizadorDTO>().GetSuccessExecutionResult(dto, string.Empty);
@@ -79,7 +79,7 @@ namespace Livraria_TI.Services
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
-                result = conn.Execute(Constants.SP_utilizadores_DELETE, parameters, commandType: CommandType.StoredProcedure);
+                result = conn.Execute(Constants.SP_UTILIZADORES_DELETE, parameters, commandType: CommandType.StoredProcedure);
             }
 
             return new ExecutionResultFactory<UtilizadorDTO>().GetSuccessExecutionResult(new UtilizadorDTO(), string.Empty);
