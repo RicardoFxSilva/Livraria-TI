@@ -24,7 +24,7 @@ namespace Livraria_TI.Services
 
             if (Id_Livro  != null)
             {
-                parameters.Add("@Id_Livro  ", Id_Livro , DbType.Int32, ParameterDirection.Input);
+                parameters.Add("@Id_Livro", Id_Livro , DbType.Int32, ParameterDirection.Input);
             }
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))

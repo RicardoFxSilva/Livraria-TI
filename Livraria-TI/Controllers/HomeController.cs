@@ -12,7 +12,6 @@ using System.Security.Claims;
 
 namespace Livraria_TI.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
 
@@ -23,13 +22,9 @@ namespace Livraria_TI.Controllers
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public HomeController(IOptions<MyOptions> myOptions, IHttpContextAccessor httpContextAccessor)
         {
+            _LivroService = new LivroService(myOptions);
             _UtilizadorService = new UtilizadorService(myOptions);
             _httpContextAccessor = httpContextAccessor;
         }
@@ -47,10 +42,6 @@ namespace Livraria_TI.Controllers
             return model;
         }
 
-        private string GetUsername()
-        {
-            return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
-        }
 
         public IActionResult Carinho()
         {
