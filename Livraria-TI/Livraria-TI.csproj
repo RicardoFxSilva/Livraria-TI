@@ -8,11 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\DTO\**" />
+    <Content Remove="Models\DTO\**" />
+    <EmbeddedResource Remove="Models\DTO\**" />
+    <None Remove="Models\DTO\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\Administrador\StyleSheet.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DTO\" />
     <Folder Include="wwwroot\Images\ImgLivros\" />
   </ItemGroup>
 

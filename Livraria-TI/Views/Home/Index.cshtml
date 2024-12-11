@@ -1,14 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<head>
-    <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
-</head>
+@section CSS{
+    <link rel="stylesheet" href="~/css/Index.css"/>
+}
+@model Livraria_TI.Models.ViewModels.Livro.LivroIndexViewModel;
 
-<br />
 <body>
-    <!-- Header-->
-    <div id="myCarousel" class="carousel slide Carrosel" data-bs-ride="carousel">
+   @*  TODO: Ver se temos tempo no final
+       <div id="myCarousel" class="carousel slide Carrosel" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -54,109 +54,26 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> *@
 
-    <!-- Section-->
+    <!-- Livros below-->
     <div class="book-grid ">
-        <div class="book-item">
-            <div class="book-image">
-                <img class="Imagem" src="~/Images/ImgLivros/1.webp" alt="Kepler">
-                <div class="overlay">
-                    <div class="book-title">Kepler</div>
-                    <div class="price-tag">25€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="1">Ver Livro</a>
+        @foreach (var livro in Model.livros)
+        {
+            <div class="book-item">
+                <div class="book-image">
+                    <img class="Imagem" src="~/Images/ImgLivros/@livro.Capa" alt="@livro.Titulo">
+                    <div class="overlay">
+                        <div class="book-title">@livro.Titulo</div>
+                        <div class="price-tag">@livro.Preco€</div>
+                        <a type="button" class="btn btn-outline-light me-2"
+                           asp-area=""
+                           asp-controller="Detalhe"
+                           asp-action="Detalhe"
+                           asp-route-id="@livro.Id_Livro">Ver Livro</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/2.webp" alt="Porque falham as nações">
-                <div class="overlay">
-                    <div class="book-title">Porque falham as nações</div>
-                    <div class="price-tag">24.99€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="2">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/3.webp" alt="O equilíbrio do poder">
-                <div class="overlay">
-                    <div class="book-title">O equilíbrio do poder</div>
-                    <div class="price-tag">15.99€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="3">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/4.webp" alt="Música, só música">
-                <div class="overlay">
-                    <div class="book-title">Música, só música</div>
-                    <div class="price-tag">22.99€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="4">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/5.webp" alt="The trees">
-                <div class="overlay">
-                    <div class="book-title">The trees</div>
-                    <div class="price-tag">18.50€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="5">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/6.webp" alt="Safe keep">
-                <div class="overlay">
-                    <div class="book-title">Safe keep</div>
-                    <div class="price-tag">29.99€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="6">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/7.webp" alt="Book Title 7">
-                <div class="overlay">
-                    <div class="book-title">A livraria cinnamon bun</div>
-                    <div class="price-tag">12.99€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="7">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/8.webp" alt="Book Title 8">
-                <div class="overlay">
-                    <div class="book-title">Fast</div>
-                    <div class="price-tag">9.99€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="8">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/9.webp" alt="Book Title 9">
-                <div class="overlay">
-                    <div class="book-title">O peso da culpa</div>
-                    <div class="price-tag">14.50€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="9">Ver Livro</a>
-                </div>
-            </div>
-        </div>
-        <div class="book-item">
-            <div class="book-image">
-                <img class="card-img-top" src="~/Images/ImgLivros/10.webp" alt="Book Title 10">
-                <div class="overlay">
-                    <div class="book-title">Não Incomodar</div>
-                    <div class="price-tag">14.50€</div>
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Detalhe" asp-action="Detalhe" asp-route-id="10">Ver Livro</a>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </body>
