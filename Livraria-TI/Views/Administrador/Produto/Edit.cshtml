@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Livraria_TI.Models.ViewsModels.Livro.DetalheViewModel;
+
+<h1>Edit</h1>
+
+<a href="@Url.Action("Index")">Voltar</a>
+
+<form method="post">
+
+    <input asp-for="IdProduto" type="hidden" />
+
+    <input asp-for="Nome" type="text" />
+
+    <input asp-for="Preco" type="text" />
+
+    <input type="submit" />
+
+</form>
