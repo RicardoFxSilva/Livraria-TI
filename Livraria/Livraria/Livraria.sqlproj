@@ -59,20 +59,30 @@
     <Folder Include="StoredProcedures" />
     <Folder Include="StoredProcedures\Utilizador" />
     <Folder Include="StoredProcedures\Livro" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ScriptDaDB.sql" />
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_insert.sql" />
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_get1.sql" />
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_get.sql" />
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_delete.sql" />
+    <None Include="Scripts\InserirDados.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_update.sql" />
     <None Include="StoredProcedures\Livro\sp_livro_delete.sql" />
-    <None Include="StoredProcedures\Livro\sp_livro_get.sql" />
     <None Include="StoredProcedures\Livro\sp_livro_get1.sql" />
     <None Include="StoredProcedures\Livro\sp_livro_insert.sql" />
     <Build Include="StoredProcedures\Livro\sp_livro_update.sql" />
+    <Build Include="Tables\Autor.sql" />
+    <Build Include="Tables\Compra.sql" />
+    <Build Include="Tables\Genero.sql" />
+    <Build Include="Tables\Item_Compra.sql" />
+    <Build Include="Tables\Livro.sql" />
+    <Build Include="Tables\LivroAutor.sql" />
+    <Build Include="Tables\LivroGenero.sql" />
+    <Build Include="Tables\Utilizador.sql" />
+    <Build Include="StoredProcedures\Livro\sp_livro_get.sql" />
   </ItemGroup>
 </Project>

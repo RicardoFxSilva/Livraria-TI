@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Livraria_TI</RootNamespace>
+    <UserSecretsId>2c02b815-2382-4a6e-aac5-0b2fe766285a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

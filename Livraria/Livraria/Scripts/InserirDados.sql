@@ -1,77 +1,6 @@
-﻿-- Criação da Base de Dados
-DROP DATABASE Livraria;
-CREATE DATABASE Livraria;
--- Criação da Tabela Utilizador
+﻿-- CriaÃ§Ã£o da Tabela Utilizador
 use Livraria;
-CREATE TABLE Utilizador (
-    Id_Utilizador INT PRIMARY KEY IDENTITY(1,1),
-    NomeUtilizador VARCHAR(100),
-    Email VARCHAR(100),
-    Password VARCHAR(50),
-    Morada VARCHAR(100)
-);
-
--- Criação da Tabela Autor
-CREATE TABLE Autor (
-    Id_Autor INT PRIMARY KEY IDENTITY(1,1),
-    NomeAutor VARCHAR(50)
-);
-
--- Criação da Tabela Genero
-CREATE TABLE Genero (
-    Id_Genero INT PRIMARY KEY IDENTITY(1,1),
-    Genero VARCHAR(50)
-); 
-
--- Criação da Tabela Livro
-CREATE TABLE Livro (
-    Id_Livro INT PRIMARY KEY IDENTITY(1,1),
-    Titulo VARCHAR(75),
-    Preco DECIMAL(10, 2),
-    Descricao Varchar(750), 
-    Capa VARCHAR(255),
-    Editora VARCHAR(75)
-);
-
--- Tabela de Relacionamento entre Livro e G�nero
-CREATE TABLE LivroGenero (
-    Id_Livro INT,
-    Id_Genero INT,
-    PRIMARY KEY (Id_Livro, Id_Genero),
-    FOREIGN KEY (Id_Livro) REFERENCES Livro(Id_Livro),
-    FOREIGN KEY (Id_Genero) REFERENCES Genero(Id_Genero)
-);
-
--- Tabela de Relacionamento entre Livro e Autor
-CREATE TABLE LivroAutor (
-    Id_Livro INT,
-    Id_Autor INT,
-    PRIMARY KEY (Id_Livro, Id_Autor),
-    FOREIGN KEY (Id_Livro) REFERENCES Livro(Id_Livro),
-    FOREIGN KEY (Id_Autor) REFERENCES Autor(Id_Autor)
-);
-
--- Criação da Tabela de Compras
-CREATE TABLE Compra (
-    Id_Compra INT PRIMARY KEY IDENTITY(1,1),
-    Data_Compra DATETIME,
-    Estado_Compra BIT,
-    Estado_Encomenda BIT,
-    Data_Entrega DATETIME,
-    Id_Utilizador INT,
-    FOREIGN KEY (Id_Utilizador) REFERENCES Utilizador(Id_Utilizador)
-);
-
--- Criação da Tabela de Itens de Compra
-CREATE TABLE Item_Compra (
-    Id_Item INT PRIMARY KEY IDENTITY(1,1),
-    Preco DECIMAL(10, 2),
-    Quantidade INT,
-    Id_Livro INT,
-    Id_Compra INT,
-    FOREIGN KEY (Id_Livro) REFERENCES Livro(Id_Livro),
-    FOREIGN KEY (Id_Compra) REFERENCES Compra(Id_Compra)
-);
+GO
 
 -- inserir dados ás tabelas incluindo o admin
 INSERT INTO Utilizador (NomeUtilizador, Email, Password, Morada)
@@ -91,7 +20,7 @@ VALUES
 ('Sofia Cardoso', 'sofia.cardoso@example.com', 'Sof%456', 'Rua L, nº 12'),
 ('André Monteiro', 'andre.monteiro@example.com', 'And_789!', 'Rua M, nº 13'),
 ('Carolina Ramos', 'carolina.ramos@example.com', 'Caro@123', 'Rua N, nº 14');
-
+GO
 
 INSERT INTO Autor (NomeAutor)
 VALUES 
@@ -110,7 +39,7 @@ VALUES
 ('Gabriel García Márquez'),
 ('Harper Lee'),
 ('Isabel Allende');
-
+GO
 
 INSERT INTO Genero (Genero)
 VALUES 
@@ -129,7 +58,7 @@ VALUES
 ('Autoajuda'),
 ('Infantil'),
 ('Clássico');
-
+GO
 
 INSERT INTO Livro (Titulo, Preco, Descricao, Capa, Editora)
 VALUES 
@@ -148,7 +77,7 @@ VALUES
 ('Cem Anos de Solidão', 37.90, 'Uma saga multigeracional da família Buendía na fictícia cidade de Macondo. A obra, um marco do realismo mágico, explora temas de amor, solidão, poder e a passagem do tempo, enquanto mistura elementos fantásticos e históricos.',NULL, 'Harper Perennial'),
 ('O Sol é para Todos', 32.80, 'Ambientado no sul dos Estados Unidos durante a Grande Depressão, o romance é narrado pela jovem Scout Finch, cuja visão inocente contrasta com as tensões raciais de sua cidade. Seu pai, o advogado Atticus Finch, defende um homem negro acusado injustamente de um crime.',NULL, 'J.B. Lippincott & Co.'),
 ('A Casa dos Espíritos', 39.99, 'Um romance multigeracional que mistura realismo mágico e história política, narrando a saga da família Trueba. A obra aborda temas como opressão, revolução, amor e memória, enquanto entrelaça eventos pessoais e sociais no Chile.',NULL, 'Editorial Sudamericana');
-
+GO
 
 INSERT INTO Compra (Data_Compra, Estado_Compra, Estado_Encomenda, Data_Entrega, Id_Utilizador)
 VALUES 
@@ -167,7 +96,7 @@ VALUES
 (GETDATE(), 1, 0, DATEADD(DAY, 4, GETDATE()), 13),
 (GETDATE(), 0, 1, DATEADD(DAY, 2, GETDATE()), 14),
 (GETDATE(), 1, 1, DATEADD(DAY, 3, GETDATE()), 15);
-
+GO
 
 INSERT INTO Item_Compra (Preco, Quantidade, Id_Livro, Id_Compra)
 VALUES 
@@ -186,15 +115,18 @@ VALUES
 (37.90, 2, 13, 13),
 (32.80, 1, 14, 14),
 (39.99, 1, 15, 15);
+GO
 
 INSERT INTO LivroGenero (Id_Livro, Id_Genero)
 VALUES 
 (1, 2), (2, 3), (3, 6), (4, 4), (5, 5), 
 (6, 3), (7, 8), (8, 1), (9, 9), (10, 8),
 (11, 2), (12, 7), (13, 9), (14, 4), (15, 10);
+GO
 
 INSERT INTO LivroAutor (Id_Livro, Id_Autor)
 VALUES 
 (1, 11), (2, 2), (3, 3), (4, 4), (5, 5),
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15);
+GO
