@@ -69,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_update.sql" />
-    <None Include="StoredProcedures\Livro\sp_livro_delete.sql" />
-    <None Include="StoredProcedures\Livro\sp_livro_get1.sql" />
-    <None Include="StoredProcedures\Livro\sp_livro_insert.sql" />
     <Build Include="StoredProcedures\Livro\sp_livro_update.sql" />
     <Build Include="Tables\Autor.sql" />
     <Build Include="Tables\Compra.sql" />
@@ -82,5 +79,7 @@
     <Build Include="Tables\LivroGenero.sql" />
     <Build Include="Tables\Utilizador.sql" />
     <Build Include="StoredProcedures\Livro\sp_livro_get.sql" />
+    <Build Include="StoredProcedures\Livro\sp_livro_insert.sql" />
+    <Build Include="StoredProcedures\Livro\sp_livro_delete.sql" />
   </ItemGroup>
 </Project>

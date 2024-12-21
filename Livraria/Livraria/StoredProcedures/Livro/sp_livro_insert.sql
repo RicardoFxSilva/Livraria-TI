@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[sp_livro_insert]
-	@Id_Livro int,
 	@Titulo NVARCHAR(MAX),
 	@Preco DECIMAL(10,2),
 	@Descricao NVARCHAR(MAX),
