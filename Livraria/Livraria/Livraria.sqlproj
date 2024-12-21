@@ -81,5 +81,6 @@
     <Build Include="StoredProcedures\Livro\sp_livro_get.sql" />
     <Build Include="StoredProcedures\Livro\sp_livro_insert.sql" />
     <Build Include="StoredProcedures\Livro\sp_livro_delete.sql" />
+    <Build Include="StoredProcedures\Livro\sp_livro_get1.sql" />
   </ItemGroup>
 </Project>

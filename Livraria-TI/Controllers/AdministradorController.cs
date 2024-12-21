@@ -61,11 +61,22 @@ namespace Livraria_TI.Controllers
 
             return View($"{ViewPath}Index.cshtml", GetIndexViewModel());
         }
+        public IActionResult Edit(int id)
+        {
+            LivroEditViewModel model = new LivroEditViewModel();
+
+            LivroDTO produto = _LivroService.Get(id).Results.FirstOrDefault();
+            model.Id_livro = produto.Id_Livro;
+            model.Titulo = produto.Titulo;
+
+            return View($"{ViewPath}Edit.cshtml", model);
+        }
 
         [HttpPost]
         public IActionResult Edit(LivroEditViewModel model)
         {
             LivroDTO dto = new LivroDTO();
+            dto.Id_Livro = model.Id_livro;
             dto.Titulo = model.Titulo;
             dto.Editora = model.Editora;
             dto.Descricao = model.descricao;
@@ -74,6 +85,15 @@ namespace Livraria_TI.Controllers
             ExecutionResult<LivroDTO> result = _LivroService.Update(dto, GetUsername());
 
             return View(model);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            LivroEditViewModel model = new LivroEditViewModel();
+
+            ExecutionResult<LivroDTO> result = _LivroService.Delete(id);
+
+            return View($"{ViewPath}Index.cshtml", GetIndexViewModel());
         }
 
         private string GetUsername()

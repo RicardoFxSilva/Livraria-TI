@@ -2,6 +2,8 @@
 {
     public class LivroEditViewModel
     {
+        public int Id_livro { get; set; }
+
         public string Capa { get; set; }
 
         public string Titulo { get; set; }
