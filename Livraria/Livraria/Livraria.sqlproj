@@ -59,7 +59,6 @@
     <Folder Include="StoredProcedures" />
     <Folder Include="StoredProcedures\Utilizador" />
     <Folder Include="StoredProcedures\Livro" />
-    <Folder Include="Scripts\" />
     <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +66,6 @@
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_get1.sql" />
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_get.sql" />
     <None Include="StoredProcedures\Utilizador\sp_utilizadores_delete.sql" />
-    <None Include="Scripts\InserirDados.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_update.sql" />
