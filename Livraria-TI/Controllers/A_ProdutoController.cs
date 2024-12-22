@@ -110,7 +110,7 @@ namespace Livraria_TI.Controllers
 
             ExecutionResult<LivroDTO> result = _LivroService.Update(dto, GetUsername());
 
-            return View(model);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
