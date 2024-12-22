@@ -50,13 +50,13 @@ namespace Livraria_TI.Controllers
         [HttpPost]
         public IActionResult Create(LivroCreateViewModel model)
         {
-            LivroDTO dto = new LivroDTO();
+            UtilizadorDTO dto = new UtilizadorDTO();
             dto.Titulo = model.Titulo;
             dto.Editora = model.Editora;
             dto.Descricao = model.descricao;
             dto.Preco = model.Preco;
 
-            ExecutionResult<LivroDTO> result = _LivroService.Insert(dto, GetUsername());
+            ExecutionResult<UtilizadorDTO> result = _LivroService.Insert(dto, GetUsername());
 
             return View("Index", GetIndexViewModel());
         }
@@ -64,7 +64,7 @@ namespace Livraria_TI.Controllers
         {
             LivroEditViewModel model = new LivroEditViewModel();
 
-            LivroDTO produto = _LivroService.Get(id).Results.FirstOrDefault();
+            UtilizadorDTO produto = _LivroService.Get(id).Results.FirstOrDefault();
             model.Id_livro = produto.Id_Livro;
             model.Titulo = produto.Titulo;
 
@@ -74,14 +74,14 @@ namespace Livraria_TI.Controllers
         [HttpPost]
         public IActionResult Edit(LivroEditViewModel model)
         {
-            LivroDTO dto = new LivroDTO();
+            UtilizadorDTO dto = new UtilizadorDTO();
             dto.Id_Livro = model.Id_livro;
             dto.Titulo = model.Titulo;
             dto.Editora = model.Editora;
             dto.Descricao = model.descricao;
             dto.Preco = model.Preco;
 
-            ExecutionResult<LivroDTO> result = _LivroService.Update(dto, GetUsername());
+            ExecutionResult<UtilizadorDTO> result = _LivroService.Update(dto, GetUsername());
 
             return View(model);
         }
@@ -90,7 +90,7 @@ namespace Livraria_TI.Controllers
         {
             LivroEditViewModel model = new LivroEditViewModel();
 
-            ExecutionResult<LivroDTO> result = _LivroService.Delete(id);
+            ExecutionResult<UtilizadorDTO> result = _LivroService.Delete(id);
 
             return View("Index", GetIndexViewModel());
         }

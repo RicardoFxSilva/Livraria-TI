@@ -16,9 +16,9 @@ namespace Livraria_TI.Services
             _myOptions = myOptions.Value;
         }
 
-        public ExecutionResult<List<LivroDTO>> Get(int? Id_Livro = null)
+        public ExecutionResult<List<UtilizadorDTO>> Get(int? Id_Livro = null)
         {
-            List<LivroDTO> listc = new List<LivroDTO>();
+            List<UtilizadorDTO> listc = new List<UtilizadorDTO>();
 
             DynamicParameters parameters = new DynamicParameters();
 
@@ -29,13 +29,13 @@ namespace Livraria_TI.Services
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
-                listc = conn.Query<LivroDTO>(Constants.SP_LIVRO_GET, parameters, commandType: CommandType.StoredProcedure).ToList();
+                listc = conn.Query<UtilizadorDTO>(Constants.SP_utilizadores_GET, parameters, commandType: CommandType.StoredProcedure).ToList();
             }
 
-            return new ExecutionResultFactory<List<LivroDTO>>().GetSuccessExecutionResult(listc, string.Empty);
+            return new ExecutionResultFactory<List<UtilizadorDTO>>().GetSuccessExecutionResult(listc, string.Empty);
         }
 
-        public ExecutionResult<LivroDTO> Insert(LivroDTO dto, string Titulo)
+        public ExecutionResult<UtilizadorDTO> Insert(UtilizadorDTO dto, string Titulo)
         {
             int result;
 
@@ -51,9 +51,9 @@ namespace Livraria_TI.Services
                 result = conn.Execute(Constants.SP_LIVRO_INSERT, parameters, commandType: CommandType.StoredProcedure);
             }
 
-            return new ExecutionResultFactory<LivroDTO>().GetSuccessExecutionResult(dto, string.Empty);
+            return new ExecutionResultFactory<UtilizadorDTO>().GetSuccessExecutionResult(dto, string.Empty);
         }
-        public ExecutionResult<LivroDTO> Update(LivroDTO dto, string Titulo)
+        public ExecutionResult<UtilizadorDTO> Update(UtilizadorDTO dto, string Titulo)
         {
             int result;
 
@@ -69,10 +69,10 @@ namespace Livraria_TI.Services
                 result = conn.Execute(Constants.SP_LIVRO_UPDATE, parameters, commandType: CommandType.StoredProcedure);
             }
 
-            return new ExecutionResultFactory<LivroDTO>().GetSuccessExecutionResult(dto, string.Empty);
+            return new ExecutionResultFactory<UtilizadorDTO>().GetSuccessExecutionResult(dto, string.Empty);
         }
 
-        public ExecutionResult<LivroDTO> Delete(int Id_Livro)
+        public ExecutionResult<UtilizadorDTO> Delete(int Id_Livro)
         {
             int result;
 
@@ -85,7 +85,7 @@ namespace Livraria_TI.Services
                 result = conn.Execute(Constants.SP_LIVRO_DELETE, parameters, commandType: CommandType.StoredProcedure);
             }
 
-            return new ExecutionResultFactory<LivroDTO>().GetSuccessExecutionResult(new LivroDTO(), string.Empty);
+            return new ExecutionResultFactory<UtilizadorDTO>().GetSuccessExecutionResult(new UtilizadorDTO(), string.Empty);
         }
     }
 }
