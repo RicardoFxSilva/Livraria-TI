@@ -68,6 +68,7 @@
                         <table id="tableCategorias" class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr>
+                                    <th>Id do Livro</th>
                                     <th>Nome</th>
                                     <th>Preço</th>
                                     <th class="colunaIcon"></th>
@@ -79,10 +80,11 @@
                                 @foreach (var Produto in Model.livros)
                                 {
                                     <tr>
+                                        <td>@Produto.Id_Livro</td>
                                         <td>@Produto.Titulo</td>
-                                        <td>@Produto.Preco</td>
+                                        <td>@Produto.Preco €</td>
                                         <td class="colunaIcon">
-                                            <a class="text-success" href="@Url.Action("Edit", "A_Produto")">
+                                            <a class="text-success" href="@Url.Action("Edit", "A_Produto", new { id = Produto.Id_Livro})">
                                                 Editar
                                                 <i class="fas fa-edit"></i>
                                             </a>

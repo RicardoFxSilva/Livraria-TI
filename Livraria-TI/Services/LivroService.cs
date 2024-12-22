@@ -4,6 +4,7 @@ using Livraria_TI.Models;
 using Livraria_TI.Helpers;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Hosting.Server;
 
 namespace Livraria_TI.Services
 {
@@ -38,12 +39,11 @@ namespace Livraria_TI.Services
         public ExecutionResult<UtilizadorDTO> Insert(UtilizadorDTO dto, string Titulo)
         {
             int result;
-
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Titulo", dto.Titulo, DbType.String, ParameterDirection.Input);
             parameters.Add("@Preco", dto.Preco, DbType.Decimal, ParameterDirection.Input);
             parameters.Add("@Descricao", dto.Descricao, DbType.String, ParameterDirection.Input);
-            parameters.Add("@Capa", dto.Capa, DbType.String, ParameterDirection.Input);
+            parameters.Add("@Capa",  dto.ImagemDeCapa, DbType.String, ParameterDirection.Input);
             parameters.Add("@Editora", dto.Editora, DbType.String, ParameterDirection.Input);
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
@@ -58,10 +58,11 @@ namespace Livraria_TI.Services
             int result;
 
             DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@Id_Livro", dto.Id_Livro, DbType.String, ParameterDirection.Input);
             parameters.Add("@Titulo", dto.Titulo, DbType.String, ParameterDirection.Input);
             parameters.Add("@Preco", dto.Preco, DbType.Decimal, ParameterDirection.Input);
             parameters.Add("@Descricao", dto.Descricao, DbType.String, ParameterDirection.Input);
-            parameters.Add("@Capa", dto.Capa, DbType.String, ParameterDirection.Input);
+            parameters.Add("@Capa", dto.ImagemDeCapa, DbType.String, ParameterDirection.Input);
             parameters.Add("@Editora", dto.Editora, DbType.String, ParameterDirection.Input);
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))

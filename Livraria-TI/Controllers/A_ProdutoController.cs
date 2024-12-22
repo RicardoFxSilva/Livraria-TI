@@ -44,22 +44,46 @@ namespace Livraria_TI.Controllers
         {
             LivroCreateViewModel model = new LivroCreateViewModel();
 
-            return View("Create", model);
+            return View(model);
         }
+
 
         [HttpPost]
         public IActionResult Create(LivroCreateViewModel model)
         {
-            UtilizadorDTO dto = new UtilizadorDTO();
-            dto.Titulo = model.Titulo;
-            dto.Editora = model.Editora;
-            dto.Descricao = model.descricao;
-            dto.Preco = model.Preco;
+            LivroDTO dto = new LivroDTO
+            {
+                Titulo = model.Titulo,
+                Editora = model.Editora,
+                Descricao = model.descricao,
+                Preco = model.Preco
+            };
 
-            ExecutionResult<UtilizadorDTO> result = _LivroService.Insert(dto, GetUsername());
+            if (model.Capa != null)
+            {
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/ImgLivros");
 
-            return View("Index", GetIndexViewModel());
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, model.Capa.FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Capa.CopyTo(stream);
+                }
+
+                dto.ImagemDeCapa = filePath;
+            }
+
+            _LivroService.Insert(dto, GetUsername());
+            return RedirectToAction("Index");
         }
+
+
+
         public IActionResult Edit(int id)
         {
             LivroEditViewModel model = new LivroEditViewModel();
@@ -67,6 +91,9 @@ namespace Livraria_TI.Controllers
             UtilizadorDTO produto = _LivroService.Get(id).Results.FirstOrDefault();
             model.Id_livro = produto.Id_Livro;
             model.Titulo = produto.Titulo;
+            model.Editora = produto.Editora;
+            model.descricao = produto.Descricao;
+            model.Preco = produto.Preco;
 
             return View("Edit", model);
         }
@@ -83,7 +110,7 @@ namespace Livraria_TI.Controllers
 
             ExecutionResult<UtilizadorDTO> result = _LivroService.Update(dto, GetUsername());
 
-            return View(model);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
