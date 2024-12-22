@@ -64,10 +64,23 @@ namespace Livraria_TI.Controllers
         public IActionResult Edit(int id)
         {
             LivroEditViewModel model = new LivroEditViewModel();
+            // Obtém o produto
+            var livroResult = _LivroService.Get(id);
 
-            LivroDTO produto = _LivroService.Get(id).Results.FirstOrDefault();
-            model.Id_livro = produto.Id_Livro;
-            model.Titulo = produto.Titulo;
+            // Verifica se o resultado é nulo ou vazio
+            if (livroResult == null || livroResult.Results == null || !livroResult.Results.Any())
+            {
+                return NotFound("Livro não encontrado.");
+            }
+
+            // Obtém o primeiro resultado
+            LivroDTO produto = livroResult.Results.FirstOrDefault();
+
+            if (produto != null)
+            {
+                model.Id_livro = produto.Id_Livro;
+                model.Titulo = produto.Titulo;
+            }
 
             return View($"{ViewPath}Edit.cshtml", model);
         }
