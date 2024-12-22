@@ -51,11 +51,13 @@ namespace Livraria_TI.Controllers
         [HttpPost]
         public IActionResult Create(LivroCreateViewModel model)
         {
-            LivroDTO dto = new LivroDTO();
-            dto.Titulo = model.Titulo;
-            dto.Editora = model.Editora;
-            dto.Descricao = model.descricao;
-            dto.Preco = model.Preco;
+            LivroDTO dto = new LivroDTO
+            {
+                Titulo = model.Titulo,
+                Editora = model.Editora,
+                Descricao = model.descricao,
+                Preco = model.Preco
+            };
 
             if (model.Capa != null)
             {
@@ -68,13 +70,18 @@ namespace Livraria_TI.Controllers
 
                 var filePath = Path.Combine(folderPath, model.Capa.FileName);
 
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Capa.CopyTo(stream);
+                }
+
                 dto.ImagemDeCapa = filePath;
             }
 
             _LivroService.Insert(dto, GetUsername());
-
             return RedirectToAction("Index");
         }
+
 
 
         public IActionResult Edit(int id)
