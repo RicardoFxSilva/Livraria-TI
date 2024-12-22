@@ -57,8 +57,7 @@ namespace Livraria_TI.Controllers
             dto.Descricao = model.descricao;
             dto.Editora = model.Editora;
             dto.Preco = model.Preco;
-            dto.ImagemDeCapa = model.Capa?.FileName ?? string.Empty;
-
+            dto.Capa = model.Capa?.FileName ?? string.Empty;
 
             if (model.Capa != null)
             {
@@ -66,7 +65,6 @@ namespace Livraria_TI.Controllers
                 {
                     var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/ImgLivros");
 
-                    // Ensure the directory exists
                     if (!Directory.Exists(folderPath))
                     {
                         Directory.CreateDirectory(folderPath);
@@ -74,7 +72,6 @@ namespace Livraria_TI.Controllers
 
                     var filePath = Path.Combine(folderPath, model.Capa.FileName);
 
-                    // Save the file to the server
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         model.Capa.CopyTo(stream);
@@ -82,16 +79,12 @@ namespace Livraria_TI.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // Handle the error (you can log the error and/or provide feedback to the user)
-                    ViewBag.ErrorMessage = "Error saving file: " + ex.Message;
+                    ViewBag.ErrorMessage = "Erro: " + ex.Message;
                     return View(model);
                 }
             }
-
-            // Insert the DTO using the service
             ExecutionResult<LivroDTO> result = _LivroService.Insert(dto, GetUsername());
 
-            // Redirect to the index view with updated data
             return View("Index", GetIndexViewModel());
         }
 

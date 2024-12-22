@@ -11,7 +11,6 @@ namespace Livraria_TI.Controllers
 
         public IActionResult Detalhe(int? id)
         {
-            ViewData["Id"] = id;
             return View(id);
         }
     }

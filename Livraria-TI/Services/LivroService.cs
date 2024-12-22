@@ -43,7 +43,7 @@ namespace Livraria_TI.Services
             parameters.Add("@Titulo", dto.Titulo, DbType.String, ParameterDirection.Input);
             parameters.Add("@Preco", dto.Preco, DbType.Decimal, ParameterDirection.Input);
             parameters.Add("@Descricao", dto.Descricao, DbType.String, ParameterDirection.Input);
-            parameters.Add("@Capa",  dto.ImagemDeCapa, DbType.String, ParameterDirection.Input);
+            parameters.Add("@Capa",  dto.Capa, DbType.String, ParameterDirection.Input);
             parameters.Add("@Editora", dto.Editora, DbType.String, ParameterDirection.Input);
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
@@ -62,7 +62,7 @@ namespace Livraria_TI.Services
             parameters.Add("@Titulo", dto.Titulo, DbType.String, ParameterDirection.Input);
             parameters.Add("@Preco", dto.Preco, DbType.Decimal, ParameterDirection.Input);
             parameters.Add("@Descricao", dto.Descricao, DbType.String, ParameterDirection.Input);
-            parameters.Add("@Capa", dto.ImagemDeCapa, DbType.String, ParameterDirection.Input);
+            parameters.Add("@Capa", dto.Capa, DbType.String, ParameterDirection.Input);
             parameters.Add("@Editora", dto.Editora, DbType.String, ParameterDirection.Input);
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
