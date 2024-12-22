@@ -51,36 +51,51 @@ namespace Livraria_TI.Controllers
         [HttpPost]
         public IActionResult Create(LivroCreateViewModel model)
         {
-            LivroDTO dto = new LivroDTO
-            {
-                Titulo = model.Titulo,
-                Editora = model.Editora,
-                Descricao = model.descricao,
-                Preco = model.Preco
-            };
+            // Initialize a DTO
+            LivroDTO dto = new LivroDTO();
+            dto.Titulo = model.Titulo;
+            dto.Descricao = model.descricao;
+            dto.Editora = model.Editora;
+            dto.Preco = model.Preco;
+            dto.ImagemDeCapa = model.Capa?.FileName ?? string.Empty;
+
 
             if (model.Capa != null)
             {
-                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/ImgLivros");
-
-                if (!Directory.Exists(folderPath))
+                try
                 {
-                    Directory.CreateDirectory(folderPath);
+                    var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/ImgLivros");
+
+                    // Ensure the directory exists
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+
+                    var filePath = Path.Combine(folderPath, model.Capa.FileName);
+
+                    // Save the file to the server
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        model.Capa.CopyTo(stream);
+                    }
                 }
-
-                var filePath = Path.Combine(folderPath, model.Capa.FileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                catch (Exception ex)
                 {
-                    model.Capa.CopyTo(stream);
+                    // Handle the error (you can log the error and/or provide feedback to the user)
+                    ViewBag.ErrorMessage = "Error saving file: " + ex.Message;
+                    return View(model);
                 }
-
-                dto.ImagemDeCapa = filePath;
             }
 
-            _LivroService.Insert(dto, GetUsername());
-            return RedirectToAction("Index");
+            // Insert the DTO using the service
+            ExecutionResult<LivroDTO> result = _LivroService.Insert(dto, GetUsername());
+
+            // Redirect to the index view with updated data
+            return View("Index", GetIndexViewModel());
         }
+
+
 
 
 
