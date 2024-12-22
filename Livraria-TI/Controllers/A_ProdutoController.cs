@@ -44,8 +44,9 @@ namespace Livraria_TI.Controllers
         {
             LivroCreateViewModel model = new LivroCreateViewModel();
 
-            return View("Create", model);
+            return View(model);
         }
+
 
         [HttpPost]
         public IActionResult Create(LivroCreateViewModel model)
@@ -56,10 +57,26 @@ namespace Livraria_TI.Controllers
             dto.Descricao = model.descricao;
             dto.Preco = model.Preco;
 
-            ExecutionResult<LivroDTO> result = _LivroService.Insert(dto, GetUsername());
+            if (model.Capa != null)
+            {
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/ImgLivros");
 
-            return View("Index", GetIndexViewModel());
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, model.Capa.FileName);
+
+                dto.ImagemDeCapa = filePath;
+            }
+
+            _LivroService.Insert(dto, GetUsername());
+
+            return RedirectToAction("Index");
         }
+
+
         public IActionResult Edit(int id)
         {
             LivroEditViewModel model = new LivroEditViewModel();
@@ -67,6 +84,9 @@ namespace Livraria_TI.Controllers
             LivroDTO produto = _LivroService.Get(id).Results.FirstOrDefault();
             model.Id_livro = produto.Id_Livro;
             model.Titulo = produto.Titulo;
+            model.Editora = produto.Editora;
+            model.descricao = produto.Descricao;
+            model.Preco = produto.Preco;
 
             return View("Edit", model);
         }

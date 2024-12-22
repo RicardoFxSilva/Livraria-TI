@@ -82,7 +82,7 @@
                                         <td>@Produto.Titulo</td>
                                         <td>@Produto.Preco</td>
                                         <td class="colunaIcon">
-                                            <a class="text-success" href="@Url.Action("Edit", "A_Produto")">
+                                            <a class="text-success" href="@Url.Action("Edit", "A_Produto", new { id = Produto.Id_Livro })">
                                                 Editar
                                                 <i class="fas fa-edit"></i>
                                             </a>

@@ -2,13 +2,11 @@
 {
     public class LivroCreateViewModel
     {
-        public string Capa { get; set; }
+        public IFormFile Capa { get; set; }
 
         public string Titulo { get; set; }
 
         public string Editora { get; set; }
-
-        public string titulo { get; set; }
 
         public decimal Preco { get; set; }
 

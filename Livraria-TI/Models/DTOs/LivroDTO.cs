@@ -9,7 +9,7 @@ namespace Livraria_TI.Models
 
         public decimal Preco { get; set; }
 
-        public string Capa {  get; set; }
+        public string ImagemDeCapa { get; set; }
 
         public string Editora { get; set; }
 
