@@ -67,7 +67,8 @@ namespace Livraria_TI.Controllers
                 UtilizadorDTO produto = _ClienteService.Get(id).Results.FirstOrDefault();
                 model.Id_Utilizador = produto.Id_Utilizador;
                 model.NomeUtilizador = produto.NomeUtilizador;
-
+                model.Email = produto.Email;
+                
                 return View("Edit", model);
             }
 
@@ -78,12 +79,10 @@ namespace Livraria_TI.Controllers
                 dto.Id_Utilizador = model.Id_Utilizador;
                 dto.NomeUtilizador = model.NomeUtilizador;
                 dto.Email = model.Email;
-                dto.Password = model.Password;
-                dto.Morada = model.Morada;
 
-            ExecutionResult<UtilizadorDTO> result = _ClienteService.Update(dto, GetUsername());
+                ExecutionResult<UtilizadorDTO> result = _ClienteService.Update(dto, GetUsername());
 
-                return View(model);
+                return RedirectToAction("Index");
             }
 
             public IActionResult Delete(int id)

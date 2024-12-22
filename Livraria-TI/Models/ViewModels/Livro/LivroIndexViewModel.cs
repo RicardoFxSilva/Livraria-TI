@@ -2,6 +2,6 @@
 {
     public class LivroIndexViewModel
     {
-        public List<UtilizadorDTO> livros { get; set; }
+        public List<LivroDTO> livros { get; set; }
     }
 }

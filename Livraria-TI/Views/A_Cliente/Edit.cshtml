@@ -3,22 +3,18 @@
 *@
 @{
 }
-@model Livraria_TI.Models.ViewModels.Livro.LivroEditViewModel;
+@model Livraria_TI.Models.ViewModels.Cliente.ClienteEditViewModel;
 
 <h1>Edit</h1>
 
 <a href="@Url.Action("Index")">Voltar</a>
 
 <form method="post">
+    <input asp-for="Id_Utilizador" type="hidden" />
 
-    <input asp-for="Capa" type="text" />
+    <input asp-for="NomeUtilizador" type="text" />
 
-    <input asp-for="titulo" type="text" />
+    <input asp-for="Email" type="text" />
 
-    <input asp-for="Preco" type="text" />
-
-    <input asp-for="Editora" type="text"/>
-
-    <input type="submit" />
-
+    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Alterar</button>
 </form> 

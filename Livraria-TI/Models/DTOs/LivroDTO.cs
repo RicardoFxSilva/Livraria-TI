@@ -1,7 +1,7 @@
 ﻿
 namespace Livraria_TI.Models
 {
-    public class UtilizadorDTO
+    public class LivroDTO
     {
         public int Id_Livro { get; set; }
 

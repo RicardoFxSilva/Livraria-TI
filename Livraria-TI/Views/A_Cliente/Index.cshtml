@@ -5,7 +5,7 @@
     ViewData["Title"] = "Clientes";
 } 
 
-@model Livraria_TI.Models.ViewModels.Livro.LivroIndexViewModel; // tem de ser alterado
+@model Livraria_TI.Models.ViewModels.Cliente.ClienteIndexViewModel; // tem de ser alterado
 
 @section Css {
 
@@ -68,6 +68,7 @@
                         <table id="tableCategorias" class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr>
+                                    <th>Id do utilizador</th>
                                     <th>Nome</th>
                                     <th>Email</th>
                                     <th class="colunaIcon"></th>
@@ -76,19 +77,20 @@
                             </thead>
                             <tbody>
 
-                                @foreach (var utilizadores in Model.clientes)
+                                @foreach (var utilizadores in Model.Clientes)
                                 {
                                     <tr>
+                                        <td>@utilizadores.Id_Utilizador</td>
                                         <td>@utilizadores.NomeUtilizador</td>
                                         <td>@utilizadores.Email</td>
-                                        <td class="colunaIcon"> 
-                                            <a class="text-success" href="@Url.Action("Edit", "A_Produto")">
+                                        <td class="colunaIcon">
+                                            <a class="text-success" href="@Url.Action("Edit", "A_Cliente",  new { id = utilizadores.Id_Utilizador })">
                                                 Editar
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         </td>
                                         <td class="colunaIcon">
-                                            <a class="text-success" href="@Url.Action("Delete", "A_Produto", new { id = utilizadores.Id_Livro })">
+                                            <a class="text-success" href="@Url.Action("Delete", "A_Cliente", new { id = utilizadores.Id_Utilizador })">
                                                 Eliminar
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>

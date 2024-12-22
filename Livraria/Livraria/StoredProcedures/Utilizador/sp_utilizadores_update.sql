@@ -6,6 +6,6 @@
 AS
 BEGIN
 	UPDATE dbo.Utilizador
-	SET [NomeUtilizador] = @NomeUtilizador
+	SET [NomeUtilizador] = @NomeUtilizador, [Email] = @Email
 	WHERE Id_Utilizador = @Id_Utilizador
 END

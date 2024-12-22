@@ -71,6 +71,8 @@
                                     <th>Id do Livro</th>
                                     <th>Nome</th>
                                     <th>Preço</th>
+                                    <th>Editora</th>
+
                                     <th class="colunaIcon"></th>
                                     <th class="colunaIcon"></th>
                                 </tr>
@@ -83,6 +85,7 @@
                                         <td>@Produto.Id_Livro</td>
                                         <td>@Produto.Titulo</td>
                                         <td>@Produto.Preco €</td>
+                                        <td>@Produto.Editora</td>
                                         <td class="colunaIcon">
                                             <a class="text-success" href="@Url.Action("Edit", "A_Produto", new { id = Produto.Id_Livro})">
                                                 Editar

@@ -10,7 +10,7 @@
         /// </summary>
         public const string SP_LIVRO_INSERT = "sp_livro_insert";
         public const string SP_LIVRO_UPDATE = "sp_livro_update";
-        public const string SP_utilizadores_GET = "sp_livro_get";
+        public const string SP_LIVRO_GET = "sp_livro_get";
         public const string SP_LIVRO_DELETE = "sp_livro_delete";
 
         public const string SP_UTILIZADORES_INSERT = "sp_utilizadores_insert";

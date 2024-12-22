@@ -29,7 +29,7 @@ namespace Livraria_TI.Services
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
-                listc = conn.Query<UtilizadorDTO>(Constants.SP_utilizadores_GET, parameters, commandType: CommandType.StoredProcedure).ToList();
+                listc = conn.Query<UtilizadorDTO>(Constants.SP_UTILIZADORES_GET, parameters, commandType: CommandType.StoredProcedure).ToList();
             }
 
             return new ExecutionResultFactory<List<UtilizadorDTO>>().GetSuccessExecutionResult(listc, string.Empty);
@@ -40,7 +40,7 @@ namespace Livraria_TI.Services
             int result;
 
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@NomeUtilizador", dto.NomeUtilizador, DbType.String, ParameterDirection.Input);
+            parameters.Add("@Nome", dto.NomeUtilizador, DbType.String, ParameterDirection.Input);
             parameters.Add("@Email", dto.Email, DbType.String, ParameterDirection.Input);
             parameters.Add("@Password", dto.Password, DbType.String, ParameterDirection.Input);
             parameters.Add("@Morada", dto.Morada, DbType.String, ParameterDirection.Input);
@@ -57,10 +57,9 @@ namespace Livraria_TI.Services
             int result;
 
             DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@Id_Utilizador", dto.Id_Utilizador, DbType.Int32, ParameterDirection.Input);
             parameters.Add("@NomeUtilizador", dto.NomeUtilizador, DbType.String, ParameterDirection.Input);
             parameters.Add("@Email", dto.Email, DbType.String, ParameterDirection.Input);
-            parameters.Add("@Password", dto.Password, DbType.String, ParameterDirection.Input);
-            parameters.Add("@Morada", dto.Morada, DbType.String, ParameterDirection.Input);
 
             using (IDbConnection conn = new SqlConnection(_myOptions.ConnString))
             {
@@ -87,4 +86,4 @@ namespace Livraria_TI.Services
         }
     }
 }
-}
+

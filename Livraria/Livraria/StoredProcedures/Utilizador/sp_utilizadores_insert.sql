@@ -1,9 +1,10 @@
-﻿Create PROCEDURE [dbo].[sp_Utilizador_insert]
+﻿Create PROCEDURE [dbo].[sp_utilizadores_insert]
 	@Nome NVARCHAR(MAX),
     @Email NVARCHAR(MAX),
-    @Password NVARCHAR(MAX)
+    @Password NVARCHAR(MAX),
+    @Morada NVARCHAR(MAX)
 AS
 BEGIN
-    INSERT INTO dbo.Utilizador([Nome],[Email],[Password])
-            VALUES (@Nome, @Email, @Password)
+    INSERT INTO dbo.Utilizador([NomeUtilizador],[Email],[Password],[Morada])
+            VALUES (@Nome, @Email, @Password, @Morada)
     END

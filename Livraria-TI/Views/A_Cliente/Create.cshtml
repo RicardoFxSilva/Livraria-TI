@@ -5,7 +5,7 @@
     ViewData["Title"] = "Criar Categorias";
 }
 
-@model Livraria_TI.Models.ViewModels.Livro.LivroCreateViewModel;
+@model Livraria_TI.Models.ViewModels.Cliente.ClienteCreateViewModel;
 
 @section Css {
 
@@ -42,11 +42,10 @@
 
                             <div class="form-group">
                                 <label for="Description">Nome do Produto</label>
-                                <input type="text" asp-for="Titulo" class="form-control" placeholder="Introduza o nome">
-                                <input type="number" asp-for="Preco" class="form-control" placeholder="Introduza o preco">
-                                <input type="text" asp-for="descricao" class="form-control" placeholder="Introduza a descricao">
-                                <input type="file" asp-for="Capa" class="form-control" placeholder="Introduza a capa">
-                                <input type="text" asp-for="Editora" class="form-control" placeholder="Introduza a editora">
+                                <input type="text" asp-for="NomeUtilizador" class="form-control" placeholder="Introduza o nome">
+                                <input type="text" asp-for="Email" class="form-control" placeholder="Introduza o email">
+                                <input type="text" asp-for="Password" class="form-control" placeholder="Introduza a palavra-passe">
+                                <input type="text" asp-for="Morada" class="form-control" placeholder="Introduza a morada">
                             </div>
 
                         </div>
