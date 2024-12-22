@@ -50,7 +50,7 @@
                         <p></p>
                         <p></p>
                         <div class="float-left">
-                            <a href="@Url.Action("Create", "Administrador")" class="btn btn-dark"><i class="fa fa-plus"></i> Novo Produto</a>
+                            <a href="@Url.Action("Create", "A_Produto")" class="btn btn-dark"><i class="fa fa-plus"></i> Novo Produto</a>
                         </div>
                         <p></p>
                         <p></p>
@@ -82,13 +82,13 @@
                                         <td>@Produto.Titulo</td>
                                         <td>@Produto.Preco</td>
                                         <td class="colunaIcon">
-                                            <a class="text-success" href="@Url.Action("Edit", "Administrador")">
+                                            <a class="text-success" href="@Url.Action("Edit", "A_Produto")">
                                                 Editar
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         </td>
                                         <td class="colunaIcon">
-                                            <a class="text-success" href="@Url.Action("Delete", "Administrador", new { id = Produto.Id_Livro })">
+                                            <a class="text-success" href="@Url.Action("Delete", "A_Produto", new { id = Produto.Id_Livro })">
                                                 Eliminar
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
