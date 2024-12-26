@@ -51,7 +51,6 @@ namespace Livraria_TI.Controllers
         [HttpPost]
         public IActionResult Create(LivroCreateViewModel model)
         {
-            // Initialize a DTO
             LivroDTO dto = new LivroDTO();
             dto.Titulo = model.Titulo;
             dto.Descricao = model.descricao;
