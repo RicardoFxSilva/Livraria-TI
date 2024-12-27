@@ -60,6 +60,7 @@
     <Folder Include="StoredProcedures\Utilizador" />
     <Folder Include="StoredProcedures\Livro" />
     <Folder Include="Tables" />
+    <Folder Include="StoredProcedures\Compras" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Script1.sql" />
@@ -83,5 +84,6 @@
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_delete.sql" />
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_get1.sql" />
     <Build Include="StoredProcedures\Utilizador\sp_utilizadores_insert.sql" />
+    <Build Include="StoredProcedures\Compras\sp_compras_get.sql" />
   </ItemGroup>
 </Project>
