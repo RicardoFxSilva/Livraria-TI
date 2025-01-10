@@ -11,6 +11,7 @@ using System.Security.Claims;
 
 namespace Livraria_TI.Controllers
 {
+    [Authorize]
     public class A_ProdutoController : Controller
     {
         private readonly MyOptions _myOptions;

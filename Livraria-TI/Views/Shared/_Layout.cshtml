@@ -18,19 +18,34 @@
                 </ul>
 
                 <div class="text-end">
-                    <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <a type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Administrador" asp-action="Index">Admin Page</a>
+                        }
+
+                        <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-outline-light me-2">Logout</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a type="button" class="btn btn-outline-light me-2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    }
                 </div>
+
                 <form class="d-flex">
-                        <button type="submit" class="btn btn-warning"  asp-area="" asp-controller="Home" asp-action="Carinho">
-                            <i class="bi-cart-fill me-1"></i>
-                            Carrinho
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                    <button type="submit" class="btn btn-warning" asp-area="" asp-controller="Checkout" asp-action="Carinho">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrinho
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
                 </form>
             </div>
         </div>
     </header>
-   
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -42,12 +42,6 @@ namespace Livraria_TI.Controllers
             return model;
         }
 
-
-        public IActionResult Carinho()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

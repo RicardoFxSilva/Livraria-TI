@@ -12,6 +12,7 @@ using Livraria_TI.Models.ViewModels.Compra;
 
 namespace Livraria_TI.Controllers
 {
+    [Authorize]
     public class A_ComprasController : Controller
         {
             private readonly MyOptions _myOptions;
