@@ -6,6 +6,7 @@ namespace Livraria_TI.Data
     {
         public static async Task SeedRolesAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            //Seed Roles
             await roleManager.CreateAsync(new IdentityRole(Enums.Roles.SuperAdmin.ToString()));
             await roleManager.CreateAsync(new IdentityRole(Enums.Roles.Admin.ToString()));
             await roleManager.CreateAsync(new IdentityRole(Enums.Roles.Moderator.ToString()));
@@ -14,38 +15,29 @@ namespace Livraria_TI.Data
 
         public static async Task SeedSuperAdminAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+
             var defaultUser = new IdentityUser
             {
-                UserName = "admin",
-                Email = "admin@admin.com",
+                UserName = "superadmin@mail.com",
+                Email = "superadmin@mail.com",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
 
-            // Check if the user already exists
-            var user = await userManager.FindByEmailAsync(defaultUser.Email);
-            if (user == null)
+            if (userManager.Users.All(u => u.Id != defaultUser.Id))
             {
-                // Use a custom password here for the SuperAdmin
-                var createResult = await userManager.CreateAsync(defaultUser, "123");  // Simple password
-
-                if (createResult.Succeeded)
+                var user = await userManager.FindByEmailAsync(defaultUser.Email);
+                if (user == null)
                 {
-                    // Add roles to the SuperAdmin
+                    await userManager.CreateAsync(defaultUser, "1234Abcd#");
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Basic.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Moderator.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Admin.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.SuperAdmin.ToString());
                 }
-                else
-                {
-                    // Handle creation failure (optional: log the errors or throw an exception)
-                    var errors = string.Join(", ", createResult.Errors.Select(e => e.Description));
-                    Console.WriteLine($"Error creating user: {errors}");
-                }
             }
-        }
 
+        }
 
         public static async Task SeedAdminAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
